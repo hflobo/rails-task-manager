@@ -1,0 +1,23 @@
+<h1>My Tasks</h1>
+<div>
+  <% @tasks.each do |task| %>
+    <div class="d-flex align-items-center">
+
+      <input type="checkbox" class="form-check-input mb-2" <%= 'checked' if task.completed %> disabled>
+
+      <%= link_to task.title, task_path(task), class: "h5 mx-3" %>
+      <%= link_to "delete",
+            task_path(task), class: "btn btn-sm btn-outline-danger",
+            method: :delete,
+            data: { confirm: "Are you sure you want to DELETE this task?" } %>
+    </div>
+    <div class="mt-2 ml-5" >
+      <p><%= task.details[0..50] %> ...</p>
+    </div>
+
+  <% end %>
+
+</div>
+<div class="mt-5">
+  <p><%= link_to "add a new task", new_task_path %></p>
+</div>

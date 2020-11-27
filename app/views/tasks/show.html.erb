@@ -1,0 +1,16 @@
+<div class="d-flex justify-content-between align-items-center">
+  <h1><%= @task.title %></h1>
+  <!-- <a href='edit' class="btn btn-primary"></a> -->
+  <%= link_to 'Edit this task', edit_task_path, class: "btn btn-primary btn-sm" %>
+</div>
+<div class="my-4 pl-4">
+  <%= @task.details %>
+</div>
+<div class="form-check">
+  <input type="checkbox" id="checkbox" class="form-check-input mb-2" <%= 'checked' if @task.completed %> disabled>
+  <label class="form-check-label" for="checkbox">Completed</label>
+</div>
+
+<div class="mt-5">
+  <p><%= link_to "back to list", tasks_path %></p>
+</div>
